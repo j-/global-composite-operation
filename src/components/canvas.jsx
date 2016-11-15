@@ -15,16 +15,26 @@ const getContext = (canvas) => (
 
 module.exports.getContext = getContext;
 
-const canvas = (Component) => ({ width, height, ...props }) => {
-	const canvas = createCanvas(width, height);
-	const context = getContext(canvas);
-	return <Component
-		canvas={ canvas }
-		context={ context }
-		width={ width }
-		height={ height }
-		{ ...props }
-	/>;
+const canvas = (Component) => class CanvasHOC extends React.Component {
+	constructor (props) {
+		super(props);
+		const { width, height } = props;
+		const canvas = createCanvas(width, height);
+		const context = getContext(canvas);
+		this.state = { canvas, context };
+	}
+
+	render () {
+		const { width, height, ...props } = this.props;
+		const { canvas, context } = this.state;
+		return <Component
+			canvas={ canvas }
+			context={ context }
+			width={ width }
+			height={ height }
+			{ ...props }
+		/>;
+	}
 };
 
 module.exports.canvas = canvas;
