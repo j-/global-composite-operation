@@ -81,6 +81,7 @@ class OperationDemo extends React.Component {
 			height,
 			fillDest,
 			fillSource,
+			period,
 			...props,
 		} = this.props;
 		this.renderCanvas();
