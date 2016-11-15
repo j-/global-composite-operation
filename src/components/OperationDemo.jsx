@@ -28,9 +28,13 @@ class OperationDemo extends React.Component {
 	}
 
 	draw (ctx, operation) {
+		const { width, height, fillDest, fillSource } = this.props;
 		ctx.save();
-		const { width, height } = this.props;
-		ctx.fillRect(0, 0, width, height);
+		ctx.globalCompositeOperation = operation;
+		ctx.fillStyle = fillDest;
+		ctx.fillRect(0, 0, width * 0.75, height * 0.75);
+		ctx.fillStyle = fillSource;
+		ctx.fillRect(width * 0.25, height * 0.25, width * 0.75, height * 0.75);
 		ctx.restore();
 	}
 
@@ -41,6 +45,8 @@ class OperationDemo extends React.Component {
 			operation,
 			width,
 			height,
+			fillDest,
+			fillSource,
 			...props,
 		} = this.props;
 		this.renderCanvas();
@@ -54,6 +60,13 @@ OperationDemo.propTypes = {
 	operation: React.PropTypes.string.isRequired,
 	width: React.PropTypes.number.isRequired,
 	height: React.PropTypes.number.isRequired,
+	fillDest: React.PropTypes.string,
+	fillSource: React.PropTypes.string,
+};
+
+OperationDemo.defaultProps = {
+	fillDest: 'red',
+	fillSource: 'blue',
 };
 
 const OperationDemoContainer = canvas(OperationDemo);
