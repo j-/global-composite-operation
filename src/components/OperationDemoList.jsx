@@ -32,7 +32,7 @@ const operations = [
 
 const OperationDemoListItem = ({ operation, ...props }) => (
 	<li>
-		<h2><pre>{ operation }</pre></h2>
+		<h3><pre>{ operation }</pre></h3>
 		<OperationDemo
 			operation={ operation }
 			width={ 100 }
