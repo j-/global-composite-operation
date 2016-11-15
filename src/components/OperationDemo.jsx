@@ -13,6 +13,25 @@ class OperationDemo extends React.Component {
 
 	componentDidMount () {
 		this.addCanvasToElement();
+		this.renderCanvas();
+	}
+
+	componentWillUpdate () {
+		this.renderCanvas();
+	}
+
+	renderCanvas () {
+		if (!this.refs.root) {
+			return;
+		}
+		this.draw(this.props.context, this.props.operation);
+	}
+
+	draw (ctx, operation) {
+		ctx.save();
+		const { width, height } = this.props;
+		ctx.fillRect(0, 0, width, height);
+		ctx.restore();
 	}
 
 	render () {
@@ -24,6 +43,7 @@ class OperationDemo extends React.Component {
 			height,
 			...props,
 		} = this.props;
+		this.renderCanvas();
 		return <div ref="root" style={{ width, height }} { ...props } />;
 	}
 };
