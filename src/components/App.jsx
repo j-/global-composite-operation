@@ -35,8 +35,8 @@ class App extends React.Component {
 					onUpdateSettings={ this.updateSettings }
 				/>
 				<h2>Operations</h2>
-				<p>In each canvas below, the red 'destination' square is
-				rendered first, then the blue 'source' square.</p>
+				<p>In each canvas below, the 'destination' square is rendered
+				first, then the 'source' square.</p>
 				<OperationDemoList
 					fillDest={ fillDest }
 					fillSource={ fillSource }
