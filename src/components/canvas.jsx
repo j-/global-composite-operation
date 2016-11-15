@@ -1,8 +1,11 @@
 const React = require('react');
 
-const createCanvas = () => (
-	document.createElement('canvas')
-);
+const createCanvas = (width, height) => {
+	const canvas = document.createElement('canvas');
+	canvas.width = width;
+	canvas.height = height;
+	return canvas;
+};
 
 module.exports.createCanvas = createCanvas;
 
@@ -12,12 +15,14 @@ const getContext = (canvas) => (
 
 module.exports.getContext = getContext;
 
-const canvas = (Component) => ({ ...props }) => {
-	const canvas = createCanvas();
+const canvas = (Component) => ({ width, height, ...props }) => {
+	const canvas = createCanvas(width, height);
 	const context = getContext(canvas);
 	return <Component
 		canvas={ canvas }
 		context={ context }
+		width={ width }
+		height={ height }
 		{ ...props }
 	/>;
 };
