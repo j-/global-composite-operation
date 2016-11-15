@@ -10,6 +10,8 @@ const App = () => (
 		then the blue 'source' square.</p>
 		<OperationDemoList />
 		<h2>Custom</h2>
+		<p>Use this to test blending modes which may be supported by your
+		browser but are not in the list above.</p>
 		<CustomOperationDemo />
 	</div>
 );
