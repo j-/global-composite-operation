@@ -30,6 +30,7 @@ class OperationDemo extends React.Component {
 	draw (ctx, operation) {
 		const { width, height, fillDest, fillSource } = this.props;
 		ctx.save();
+		ctx.clearRect(0, 0, width, height);
 		ctx.globalCompositeOperation = operation;
 		ctx.fillStyle = fillDest;
 		ctx.fillRect(0, 0, width * 0.75, height * 0.75);
