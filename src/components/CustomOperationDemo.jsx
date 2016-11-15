@@ -18,10 +18,20 @@ class CustomOperationDemo extends React.Component {
 
 	render () {
 		const { operation } = this.state;
+		const {
+			fillDest,
+			fillSource,
+		} = this.props;
 		return (
 			<div>
 				<input type="text" value={ operation } onChange={ this.handleInputChange } />
-				<OperationDemo operation={ operation } width={ 200 } height={ 200 } />
+				<OperationDemo
+					operation={ operation }
+					width={ 200 }
+					height={ 200 }
+					fillDest={ fillDest }
+					fillSource={ fillSource }
+				/>
 			</div>
 		);
 	}
@@ -29,6 +39,8 @@ class CustomOperationDemo extends React.Component {
 
 CustomOperationDemo.propTypes = {
 	defaultOperation: React.PropTypes.string,
+	fillDest: React.PropTypes.string.isRequired,
+	fillSource: React.PropTypes.string.isRequired,
 };
 
 CustomOperationDemo.defaultProps = {

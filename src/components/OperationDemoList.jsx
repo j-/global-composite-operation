@@ -30,25 +30,29 @@ const operations = [
 	'luminosity',
 ];
 
-const OperationDemoListItem = ({ operation, ...props }) => (
+const OperationDemoListItem = ({ fillDest, fillSource, operation, ...props }) => (
 	<li>
 		<h3><pre>{ operation }</pre></h3>
 		<OperationDemo
 			operation={ operation }
 			width={ 100 }
 			height={ 100 }
+			fillDest={ fillDest }
+			fillSource={ fillSource }
 			{ ...props }
 		/>
 	</li>
 );
 
-const OperationDemoList = ({ ...props }) => (
+const OperationDemoList = ({ fillDest, fillSource, ...props }) => (
 	<ul>
 		{
 			operations.map((operation) => (
 				<OperationDemoListItem
 					key={ operation }
 					operation={ operation }
+					fillDest={ fillDest }
+					fillSource={ fillSource }
 				/>
 			))
 		}
