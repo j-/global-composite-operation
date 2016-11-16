@@ -55,20 +55,25 @@ class OperationDemo extends React.Component {
 
 	draw (ctx, operation, t) {
 		const { width, height, fillDest, fillSource, period } = this.props;
-		ctx.save();
-		ctx.clearRect(0, 0, width, height);
-		ctx.globalCompositeOperation = operation;
-		ctx.fillStyle = fillDest;
-		ctx.fillRect(0, 0, width * 0.75, height * 0.75);
-		ctx.fillStyle = fillSource;
 		const value = (t % period) / period;
 		const degrees = value * TWOPI;
+		// Save context state and clear the canvas
+		ctx.save();
+		ctx.clearRect(0, 0, width, height);
+		// Draw destination shape
+		ctx.fillStyle = fillDest;
+		ctx.fillRect(0, 0, width * 0.75, height * 0.75);
+		// Set operation
+		ctx.globalCompositeOperation = operation;
+		// Draw source shape
+		ctx.fillStyle = fillSource;
 		ctx.fillRect(
 			width * (Math.sin(degrees) * 0.125 + 0.125),
 			height * (Math.cos(degrees) * 0.125 + 0.125),
 			width * 0.75,
 			height * 0.75
 		);
+		// Restore context state
 		ctx.restore();
 	}
 
