@@ -1,6 +1,10 @@
 const React = require('react');
 const OperationDemo = require('./OperationDemo');
 
+const {
+	Card,
+} = require('elemental');
+
 const operations = [
 	'source-over',
 	'source-in',
@@ -31,8 +35,8 @@ const operations = [
 ];
 
 const OperationDemoListItem = ({ fillDest, fillSource, operation, ...props }) => (
-	<li>
-		<h3><pre>{ operation }</pre></h3>
+	<Card>
+		<pre><h3>{ operation }</h3></pre>
 		<OperationDemo
 			operation={ operation }
 			width={ 100 }
@@ -41,11 +45,11 @@ const OperationDemoListItem = ({ fillDest, fillSource, operation, ...props }) =>
 			fillSource={ fillSource }
 			{ ...props }
 		/>
-	</li>
+	</Card>
 );
 
 const OperationDemoList = ({ fillDest, fillSource, ...props }) => (
-	<ul>
+	<div>
 		{
 			operations.map((operation) => (
 				<OperationDemoListItem
@@ -56,7 +60,7 @@ const OperationDemoList = ({ fillDest, fillSource, ...props }) => (
 				/>
 			))
 		}
-	</ul>
+	</div>
 );
 
 module.exports = OperationDemoList;
