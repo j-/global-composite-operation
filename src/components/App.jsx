@@ -2,6 +2,7 @@ const React = require('react');
 const OperationDemoList = require('./OperationDemoList');
 const CustomOperationDemo = require('./CustomOperationDemo');
 const DemoSettings = require('./DemoSettings');
+const Ribbon = require('./Ribbon');
 
 const {
 	Alert,
@@ -31,6 +32,7 @@ class App extends React.Component {
 		} = this.state;
 		return (
 			<div className="app">
+				<Ribbon />
 				<h1>Global Composite Operation</h1>
 				<h2>Settings</h2>
 				<DemoSettings
