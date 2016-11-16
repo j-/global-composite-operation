@@ -3,6 +3,10 @@ const OperationDemoList = require('./OperationDemoList');
 const CustomOperationDemo = require('./CustomOperationDemo');
 const DemoSettings = require('./DemoSettings');
 
+const {
+	Alert,
+} = require('elemental');
+
 class App extends React.Component {
 	constructor (props) {
 		super(props);
@@ -35,15 +39,15 @@ class App extends React.Component {
 					onUpdateSettings={ this.updateSettings }
 				/>
 				<h2>Operations</h2>
-				<p>In each canvas below, the 'destination' square is rendered
-				first, then the 'source' square.</p>
+				<Alert type="info">In each canvas below, the <strong>destination</strong> square is
+				rendered first, then the <strong>source</strong> square.</Alert>
 				<OperationDemoList
 					fillDest={ fillDest }
 					fillSource={ fillSource }
 				/>
 				<h2>Custom</h2>
-				<p>Use this to test blending modes which may be supported by
-				your browser but are not in the list above.</p>
+				<Alert type="info">Use this to test blending modes which may be supported by
+				your browser but are not in the list above.</Alert>
 				<CustomOperationDemo
 					fillDest={ fillDest }
 					fillSource={ fillSource }
