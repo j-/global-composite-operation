@@ -1,6 +1,13 @@
 const React = require('react');
 const OperationDemo = require('./OperationDemo');
 
+const {
+	Form,
+	FormField,
+	FormInput,
+	Button,
+} = require('elemental');
+
 class CustomOperationDemo extends React.Component {
 	constructor (props) {
 		super(props);
@@ -23,8 +30,14 @@ class CustomOperationDemo extends React.Component {
 			fillSource,
 		} = this.props;
 		return (
-			<div>
-				<input type="text" value={ operation } onChange={ this.handleInputChange } />
+			<Form type="horizontal">
+				<FormField label="Composite operation">
+					<FormInput
+						type="text"
+						value={ operation }
+						onChange={ this.handleInputChange }
+					/>
+				</FormField>
 				<OperationDemo
 					operation={ operation }
 					width={ 200 }
@@ -32,7 +45,7 @@ class CustomOperationDemo extends React.Component {
 					fillDest={ fillDest }
 					fillSource={ fillSource }
 				/>
-			</div>
+			</Form>
 		);
 	}
 }
