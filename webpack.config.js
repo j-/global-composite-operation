@@ -12,7 +12,7 @@ module.exports = {
 		filename: 'bundle.js',
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx'],
+		extensions: ['', '.js', '.jsx', '.css', '.less'],
 	},
 	module: {
 		loaders: [
@@ -22,6 +22,10 @@ module.exports = {
 					resolve('./src'),
 				],
 				test: /\.jsx?$/,
+			},
+			{
+				loader: 'style!css!less',
+				test: /\.(css|less)?$/,
 			},
 		],
 	},
