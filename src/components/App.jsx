@@ -44,6 +44,7 @@ class App extends React.Component {
 				<OperationDemoList
 					fillDest={ fillDest }
 					fillSource={ fillSource }
+					cols={ 4 }
 				/>
 				<h2>Custom</h2>
 				<Alert type="info">Use this to test blending modes which may be supported by

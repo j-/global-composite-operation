@@ -14,7 +14,7 @@ const OperationDemoListItem = ({
 	...props,
 }) => (
 	<Card>
-		<pre><h3>{ operation }</h3></pre>
+		<pre><strong>{ operation }</strong></pre>
 		<OperationDemo
 			operation={ operation }
 			width={ width }

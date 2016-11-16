@@ -1,6 +1,11 @@
 const React = require('react');
 const OperationDemoListItem = require('./OperationDemoListItem');
 
+const {
+	Row,
+	Col,
+} = require('elemental');
+
 const operations = [
 	'source-over',
 	'source-in',
@@ -30,19 +35,30 @@ const operations = [
 	'luminosity',
 ];
 
-const OperationDemoList = ({ fillDest, fillSource, ...props }) => (
-	<div>
-		{
-			operations.map((operation) => (
-				<OperationDemoListItem
-					key={ operation }
-					operation={ operation }
-					fillDest={ fillDest }
-					fillSource={ fillSource }
-				/>
-			))
-		}
-	</div>
-);
+const OperationDemoList = ({ fillDest, fillSource, operations, cols, ...props }) => {
+	const sm = cols <= 1 ? null : `1/${cols}`;
+	const children = operations.map((operation) => (
+		<Col sm={ sm } key={ operation }>
+			<OperationDemoListItem
+				operation={ operation }
+				fillDest={ fillDest }
+				fillSource={ fillSource }
+			/>
+		</Col>
+	));
+	return <Row>{ children }</Row>;
+};
+
+OperationDemoList.propTypes = {
+	fillDest: React.PropTypes.string.isRequired,
+	fillSource: React.PropTypes.string.isRequired,
+	operations: React.PropTypes.arrayOf(React.PropTypes.string),
+	cols: React.PropTypes.number,
+};
+
+OperationDemoList.defaultProps = {
+	cols: 1,
+	operations: operations,
+};
 
 module.exports = OperationDemoList;
