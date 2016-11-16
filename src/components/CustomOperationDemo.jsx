@@ -1,5 +1,5 @@
 const React = require('react');
-const OperationDemo = require('./OperationDemo');
+const OperationDemoListItem = require('./OperationDemoListItem');
 
 const {
 	Form,
@@ -38,7 +38,7 @@ class CustomOperationDemo extends React.Component {
 						onChange={ this.handleInputChange }
 					/>
 				</FormField>
-				<OperationDemo
+				<OperationDemoListItem
 					operation={ operation }
 					width={ 200 }
 					height={ 200 }
