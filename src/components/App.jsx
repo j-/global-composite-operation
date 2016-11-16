@@ -26,7 +26,7 @@ class App extends React.Component {
 			fillSource,
 		} = this.state;
 		return (
-			<div>
+			<div className="app">
 				<h1>Global Composite Operation</h1>
 				<h2>Settings</h2>
 				<DemoSettings
