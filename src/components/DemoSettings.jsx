@@ -1,5 +1,12 @@
 const React = require('react');
 
+const {
+	Form,
+	FormField,
+	FormInput,
+	Button,
+} = require('elemental');
+
 class DemoSettings extends React.Component {
 	constructor (props) {
 		super(props);
@@ -35,25 +42,25 @@ class DemoSettings extends React.Component {
 	render () {
 		const { fillDest, fillSource } = this.state;
 		return (
-			<form onSubmit={ this.handleSubmit }>
-				<label>
-					<strong>Destination</strong><br />
-					<input
+			<Form type="horizontal" onSubmit={ this.handleSubmit }>
+				<FormField label="Destination">
+					<FormInput
 						type="text"
 						value={ fillDest }
 						onChange={ this.handleChangeFillDest }
 					/>
-				</label><br />
-				<label>
-					<strong>Source</strong><br />
-					<input
+				</FormField>
+				<FormField label="Source">
+					<FormInput
 						type="text"
 						value={ fillSource }
 						onChange={ this.handleChangeFillSource }
 					/>
-				</label><br />
-				<button type="submit">Apply</button>
-			</form>
+				</FormField>
+				<FormField offsetAbsentLabel>
+					<Button submit>Apply</Button>
+				</FormField>
+			</Form>
 		);
 	}
 }
