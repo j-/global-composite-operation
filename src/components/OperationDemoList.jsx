@@ -1,9 +1,5 @@
 const React = require('react');
-const OperationDemo = require('./OperationDemo');
-
-const {
-	Card,
-} = require('elemental');
+const OperationDemoListItem = require('./OperationDemoListItem');
 
 const operations = [
 	'source-over',
@@ -33,20 +29,6 @@ const operations = [
 	'color',
 	'luminosity',
 ];
-
-const OperationDemoListItem = ({ fillDest, fillSource, operation, ...props }) => (
-	<Card>
-		<pre><h3>{ operation }</h3></pre>
-		<OperationDemo
-			operation={ operation }
-			width={ 100 }
-			height={ 100 }
-			fillDest={ fillDest }
-			fillSource={ fillSource }
-			{ ...props }
-		/>
-	</Card>
-);
 
 const OperationDemoList = ({ fillDest, fillSource, ...props }) => (
 	<div>
